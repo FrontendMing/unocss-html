@@ -10,19 +10,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        'index': resolve(__dirname, 'index.html'),
+        // 'index': resolve(__dirname, 'index.html'),
         'test': resolve(__dirname, 'page/test/index.html'),
       },
-    },
-  },
-  cssCodeSplit: false,
-  css: {
-    // css预处理器
-    preprocessorOptions: {
-        css: {
-            charset: false,
-            additionalData: '@import "/normalize.css";',
-        },
     },
   },
   plugins: [
