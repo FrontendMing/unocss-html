@@ -33,14 +33,36 @@
 └── vite.config.js             # 项目打包配置
 ```
 
-<font color="#FFFF00" size="5">注意事项</font>
+## `注意事项`
 
-- 需要在页面引入公共样式，因为这样就可以保证，公共样式不会被重复打包进自定义页面的css文件中
+`需要在页面引入公共样式，因为这样就可以保证，公共样式不会被重复打包进自定义页面的css文件中`
+
 ```
+<!-- 固定写法 -->
 <link rel="stylesheet" href="/normalize.css">
 <link rel="stylesheet" href="/common.css">
 <script type="module">import 'virtual:uno.css';</script>
 
 <!-- 如果页面有需要合并的样式，建议新建私有css文件，再在页面引入 -->
 <!-- <link rel="stylesheet" href="./index.css"> -->
+```
+
+
+## 本地开发
+
+```
+第一步: yarn install 或者 yarn
+第二步: yarn dev
+```
+
+## 打包
+```
+yarn build
+```
+
+
+> 使用如下命令(需要开2个终端)，可以在开发的同时，实时更新打包后的文件
+```
+终端一: yarn dev
+终端二: yarn build:watch
 ```
