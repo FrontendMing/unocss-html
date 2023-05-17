@@ -19,9 +19,13 @@ export const theme = {
 };
 
 const shortcuts = {
+    // flex 布局
     "flex-start": 'flex items-center justify-start',
     "flex-center": 'flex items-center justify-center ',
     "flex-between": 'flex items-center justify-between ',
+
+    // 共用 button
+    
 };
 
 // 生成规则
@@ -29,9 +33,9 @@ function createRules(prefix = 'j-', rate = 7.5, unit = 'vw') {
 
     const RegFc = props => ([, d]) => {
         
-        const isArray = Object.prototype.toString.call(props) === '[object Array]'
+        const isArray = Object.prototype.toString.call(props).slice(8, -1) === 'Array'
 
-        // 数组
+        // props 为数组
         if (isArray) {
             return props.reduce((prev, next) => {
                 prev[next] = `${d / rate}${unit}`
@@ -111,4 +115,3 @@ export default defineConfig({
         transformerVariantGroup(),
     ],
 });
-
