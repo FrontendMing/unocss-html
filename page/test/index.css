@@ -1,0 +1,4 @@
+/* 合并样式 （适当合并，因为它会增加打包体积） */
+.combine-css {
+    --uno: 'text-48 leading-56 text-primary text-center mt-30 lg:(j-text-56 j-leading-72 j-mt-30 text-main)'
+}

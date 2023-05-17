@@ -1,0 +1,27 @@
+{
+  "name": "unocss-html",
+  "version": "1.0.0",
+  "description": "使用unocss，用工程化的方式写页面",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build:watch": "vite build --watch",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@unocss/reset": "^0.51.13"
+  },
+  "devDependencies": {
+    "@unocss/core": "^0.51.13",
+    "@unocss/inspector": "^0.51.2",
+    "@unocss/transformer-variant-group": "^0.51.12",
+    "unocss": "^0.51.13",
+    "vite": "^4.3.5"
+  },
+  "keywords": [
+    "unocss",
+    "html"
+  ],
+  "author": "kayce.wang",
+  "license": "ISC"
+}
