@@ -8,9 +8,6 @@
     "build:watch": "vite build --watch",
     "build": "vite build"
   },
-  "dependencies": {
-    "@unocss/reset": "^0.51.13"
-  },
   "devDependencies": {
     "@unocss/core": "^0.51.13",
     "@unocss/inspector": "^0.51.2",
