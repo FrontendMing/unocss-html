@@ -1,7 +1,6 @@
 // vite.config.js
 import { defineConfig } from 'vite'
 import UnoCSS from 'unocss/vite';
-import unocssConfig from './uno.config.js';
 
 import { resolve } from 'path'
 
@@ -16,6 +15,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    UnoCSS(unocssConfig),
+    UnoCSS(),
   ]
 })
