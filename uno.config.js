@@ -4,12 +4,23 @@ import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export const theme = {
     colors: {
-        primary: 'var(--primary-color)', // #FF5000
-        main: 'var(--main-text-color)', // #333
-        sub: 'var(--text-sub-color)', // #666
-        info: "var(--weak-color)", // #999
-        disable: "var(--disabled-color)", // #ccc
-        weak: "var(--weak-color)", // #ddd
+        primary: "var(--primary-color)",
+        main: "var(--text-main-color)",
+        sub: "var(--text-sub-color)",
+        info: "var(--text-info-color)",
+        disable: "var(--text-disable-color)",
+        input: "var(--input-border-color)",
+        f0: "#F0F0F0",
+        f5: "#F5F5F5",
+    },
+    fontSize: {
+        base: ["var(--text-base-size)", "var(--leading-base)"],
+        xs: ["var(--text-xs-size)", "var(--leading-xs)"],
+        sm: ["var(--text-sm-size)", "var(--leading-sm)"],
+        lg: ["var(--text-lg-size)", "var(--leading-lg)"],
+        xl: ["var(--text-xl-size)", "var(--leading-xl)"],
+        '2xl': ["var(--text-2xl-size)", "var(--leading-2xl)"],
+        '3xl': ["var(--text-3xl-size)", "var(--leading-3xl)"],
     },
     breakpoints: {
         sm: '320px',
@@ -27,6 +38,10 @@ const shortcuts = {
     // 共用 button
     
 };
+
+// 由于 UnoCSS 在构建时使用静态提取，因此在编译时我们不可能知道所有实用程序的组合。为此，我们可以配置 safelist 选项
+// 动态样式示例：<div class="lg:a-w-${size}"></div>
+const safelist = 'lg:a-w-50 lg:a-w-100'.split(' ')
 
 // 生成规则
 function createRules(prefix = 'j-', rate = 7.5, unit = 'vw') {
@@ -88,17 +103,23 @@ function createRules(prefix = 'j-', rate = 7.5, unit = 'vw') {
     ]
 }
 
+
+// PC端 设计稿尺寸
+const PC_DESIGN_SIZE = 1920
+// 移动端 设计稿尺寸
+const MB_DESIGN_SIZE = 750
+
 export default defineConfig({
     presets: [
         presetUno(),
         presetAttributify()
     ],
     rules: [
-        // 移动端
-        ...createRules('', 7.5, 'vw'),
+        // 移动端 - 响应式
+        ...createRules('', MB_DESIGN_SIZE / 100, 'vw'),
 
         // PC端 - 响应式
-        ...createRules('j-', 19.2, 'vw'),
+        ...createRules('j-', PC_DESIGN_SIZE / 100, 'vw'),
         // PC端 - 固定大小
         ...createRules('a-', 1, 'px'),
 
@@ -107,6 +128,7 @@ export default defineConfig({
     ],
     theme,
     shortcuts,
+    safelist,
     transformers: [
         transformerDirectives({
             // the defaults
