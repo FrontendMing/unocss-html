@@ -17,9 +17,9 @@
 ## 项目结构说明
 ```
 ├── public                     # 项目公共静态资源目录
+├── ├── img                    # 静态图片目录
 ├── ├── common.css             # 页面 css（公共）
-├── ├── normalize.css          # 页面重置 css（公共）
-│   └── img                    # 静态图片目录
+│   └── tailwind-compat.css    # 页面重置 css（公共）
 ├── page                       # 多页面
 │   ├── test                   # test 页面
 │   │   ├── index.css
